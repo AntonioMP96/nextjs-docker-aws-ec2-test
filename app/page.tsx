@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function Main() {
   return (
-    <section className="text-black body-font lg:pt-20">
+    <section className="text-black body-font lg:pt-20 overflow-hidden">
       <div className="container px-5 pt-32 mx-auto lg:px-4 lg:py-4">
         <div className="flex flex-col w-full mb-2 text-left md:text-center ">
-          <h1 className="mb-2 text-6xl font-bold tracking-tighter text-white lg:text-8xl md:text-7xl">
+          <h1 className="mb-2 text-6xl font-bold tracking-tighter text-white lg:text-9xl md:text-7xl relative before:absolute before:h-[400px] before:w-full sm:before:w-[580px] before:-translate-x-1/1 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-translate-x-1/5 after:-translate-y-1/4 after:-z-20 after:h-[480px] after:w-full sm:after:w-[440px] after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-emerald-400 before:dark:opacity-10 after:dark:from-emerald-900 after:dark:via-emerald-400 after:dark:opacity-40 before:lg:h-[560px] z-[-1]">
             <span>Hagamos </span>
             <br className="hidden lg:block"></br>
             Ruido
@@ -370,6 +370,7 @@ export default function Main() {
             </div>
           </div>
         </div>
+        
       </section>
     </section>
   );
