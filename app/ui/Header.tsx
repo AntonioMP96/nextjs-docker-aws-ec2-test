@@ -13,7 +13,7 @@ export default function Header() {
         <a className="flex title-font font-medium text-white mb-4 md:mb-0 pr-4" href="/">
           <span className="ml-3 text-3xl">
             <Image
-            src={'/logo_cykadas.png'}
+            src={'/tw_css_logo.svg'}
             height={50}
             width={220}
             alt="Cykadas"

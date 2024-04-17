@@ -10,9 +10,16 @@ export default function Main() {
   
         <div className='hidden lg:flex flex-col justify-between bg-[#1b696d] lg:p-8 xl:p-12 lg:max-w-sm xl:max-w-lg'>
           <div className="flex items-center justify-start space-x-3">
-            <span className="bg-black rounded-full w-8 h-8"></span>
-            <a href="#" className="font-medium text-2xl">
-              Tony MX
+            {/* <span className="bg-black rounded-full w-8 h-8"></span>*/}
+            <Image
+              src={'/tw_css_logo.svg'}
+              height={50}
+              width={50}
+              alt="Tailwind to CSS logo"
+              className="rounded-lg"
+              />
+            <a href="#" className="font-medium text-3xl">
+              Tailwind to CSS
             </a>
           </div>
           <div className='space-y-5'>
@@ -25,7 +32,7 @@ export default function Main() {
               Crear cuenta
             </button>
           </div>
-          <p className="font-medium">© 2022 Cykadas</p>
+          <p className="font-medium">© 2024 Tony MX</p>
         </div>
   
         {/* <!-- Login --> */}
@@ -36,7 +43,7 @@ export default function Main() {
               <span className="bg-black rounded-full w-6 h-6"></span>
               <a href="#">
                 <Image
-                src={'/logo_cykadas.png'}
+                src={'/tw_css_logo.svg'}
                 height={50}
                 width={140}
                 alt="Cykadas"
