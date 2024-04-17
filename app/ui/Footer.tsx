@@ -9,12 +9,7 @@ export default function Footer() {
           <Link className="title-font font-normal" href="https://www.cykadas.com">
             <span className="ml-3 text-lg flex flex-row items-center justify-center gap-3">
               &copy;
-                <Image
-                src={'/logo_cykadas.png'}
-                height={50}
-                width={150}
-                alt="Cykadas"
-                />
+                Tony MX
                 2024
             </span>
           </Link>
