@@ -11,13 +11,8 @@ export default function Main() {
         <div className='hidden lg:flex flex-col justify-between bg-[#1b696d] lg:p-8 xl:p-12 lg:max-w-sm xl:max-w-lg'>
           <div className="flex items-center justify-start space-x-3">
             <span className="bg-black rounded-full w-8 h-8"></span>
-            <a href="#" className="font-medium text-xl">
-              <Image
-              src={'/logo_cykadas.png'}
-              height={100}
-              width={200}
-              alt="Cykadas"
-              />
+            <a href="#" className="font-medium text-2xl">
+              Tony MX
             </a>
           </div>
           <div className='space-y-5'>
