@@ -13,8 +13,8 @@ export default function Main() {
             {/* <span className="bg-black rounded-full w-8 h-8"></span>*/}
             <Image
               src={'/tw_css_logo.svg'}
-              height={50}
-              width={50}
+              height={45}
+              width={45}
               alt="Tailwind to CSS logo"
               className="rounded-lg"
               />
