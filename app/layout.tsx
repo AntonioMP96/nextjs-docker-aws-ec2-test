@@ -24,7 +24,9 @@ export default function RootLayout({
       <body className={roboto.className}>
         <main className="flex min-h-screen bg-slate-200 p-2">
           <Sidebar/>
-          {children}
+          <div className="ml-3 w-full">
+            {children}
+          </div>
         </main>
         <Footer/>
       </body>

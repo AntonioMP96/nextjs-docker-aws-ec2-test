@@ -17,7 +17,7 @@ const menuItems = [
         title: 'Nuevo'
     },
     {
-        path: '/tailwind_files',
+        path: '/tailwind',
         icon: <SiTailwindcss/>,
         title: 'Archivos Tailwind'
     },
