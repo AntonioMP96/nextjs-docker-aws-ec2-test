@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { IoHomeSharp, IoAddCircleSharp, IoLogoCss3, IoPersonCircleSharp, IoLogOutSharp } from 'react-icons/io5';
 import { SiTailwindcss } from "react-icons/si";
+import { signOut, auth } from "@/auth"
 
 import { NavLink } from "./NavLink";
 
@@ -33,16 +34,13 @@ const menuProfileItems = [
         path: '/my_profile',
         icon: <IoPersonCircleSharp/>,
         title: 'Mi perfil'
-    },
-    {
-        path: '/logout',
-        icon: <IoLogOutSharp/>,
-        title: 'Salir'
     }
 ]
 
 
-export const Sidebar = () => {
+export const Sidebar = async () => {
+    const session = await auth()
+
     return (
         <aside className="p-5 min-h-full bg-emerald-400 rounded-3xl min-w-max text-black">
             <div className="flex items-center gap-4">
@@ -69,11 +67,31 @@ export const Sidebar = () => {
                     ))
                 }
                 <hr className="w-full border-t-black"/>
-                {
-                    menuProfileItems.map( item => (
-                        <NavLink key={item.path} {...item}/> 
-                    ))
-                }
+                
+                <NavLink 
+                path={'/'} 
+                icon={session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={30} height={30} alt="Profile logo"/> : <IoPersonCircleSharp/>} 
+                title={session?.user?.name ? session.user.name : 'Mi perfil'}
+                /> 
+                 
+                <form 
+                className="w-full rounded-xl border-4 border-emerald-400 hover:border-black transition-all"
+                action={async () => {
+                    "use server"
+                    await signOut()
+                }}
+                >
+                    <button 
+                    type="submit"
+                    className={`
+                    flex items-center w-full p-3  text-start leading-tight"
+                    `}>
+                        <div className="grid place-items-center mr-4">
+                        <IoLogOutSharp/>
+                        </div>
+                        Salir
+                    </button>
+                </form>
             </div>
         </aside>
     )

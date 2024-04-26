@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
-import { Sidebar } from '@/app/components'
 import Footer from "@/app/ui/Footer";
 
 
@@ -22,9 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <main className="flex min-h-screen bg-slate-200 p-2">
-          <Sidebar/>
-          <div className="ml-3 w-full">
+        <main className="flex min-h-screen bg-slate-200">
+          <div className="w-full">
             {children}
           </div>
         </main>
