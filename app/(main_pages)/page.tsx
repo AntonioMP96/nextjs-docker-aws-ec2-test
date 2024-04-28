@@ -1,18 +1,41 @@
 import Image from "next/image"
 import {
-  IoHomeSharp,
-  IoAddCircleSharp,
-  IoLogoCss3,
-  IoPersonCircleSharp,
-  IoLogOutSharp,
-} from "react-icons/io5"
-// import { auth } from '@/auth'/
-// import { redirect } from "next/navigation"
+    S3Client,
+    PutObjectCommand,
+    CreateBucketCommand,
+    DeleteObjectCommand,
+    DeleteBucketCommand,
+    paginateListObjectsV2,
+    GetObjectCommand,
+} from "@aws-sdk/client-s3"
+   
+
 
 export default async function Main() {
-    // const session = await auth()
 
-    // if (!session) return redirect('/login')
+    // const s3Client = new S3Client({
+    //     region: 'us-west-1', 
+    //     credentials: {
+    //         accessKeyId: process.env.AWS_ACCES_KEY_ID, 
+    //         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    //     } 
+    // })
+
+    // const s3Send = await s3Client.send(
+    //     new PutObjectCommand({
+    //     Bucket: 'tonymx-tailwind-to-css',
+    //     Key: "css-compiled-files/my-first-object2.txt",
+    //     Body: "Hello JavaScript SDK!",
+    //     })
+    // )
+    
+    // const s3Send = await s3Client.send(
+    //     new DeleteObjectCommand({
+    //     Bucket: 'tonymx-tailwind-to-css',
+    //     Key: "my-first-object.txt"
+    //     })
+    // )
+    // console.log('RESPUESTA ELIMINAR?...', s3Send)
     
     return (
         <div>
