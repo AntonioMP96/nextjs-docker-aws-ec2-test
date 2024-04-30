@@ -29,21 +29,13 @@ const menuItems = [
     }
 ]
 
-const menuProfileItems = [
-    {
-        path: '/my_profile',
-        icon: <IoPersonCircleSharp/>,
-        title: 'Mi perfil'
-    }
-]
-
 
 export const Sidebar = async () => {
     const session = await auth()
 
     return (
-        <aside className="p-5 min-h-full bg-emerald-400 rounded-3xl min-w-max text-black">
-            <div className="flex items-center gap-4">
+        <aside className="p-4 md:p-5 min-h-full bg-emerald-400 rounded-3xl min-w-max text-black">
+            <div className="flex items-center justify-center gap-4">
                 <Image
                 src={'/tw_css_logo.svg'}
                 height={60}
@@ -51,7 +43,7 @@ export const Sidebar = async () => {
                 alt="Tailwind to CSS logo"
                 className="rounded-lg antialiased"
                 />
-                <div className="mr-16">
+                <div className="mr-16 hidden md:inline-block">
                     <h1 className="text-2xl font-normal">
                     Dashboard
                     </h1>
@@ -84,12 +76,14 @@ export const Sidebar = async () => {
                     <button 
                     type="submit"
                     className={`
-                    flex items-center w-full p-3  text-start leading-tight"
+                    flex items-center justify-center w-full p-3  text-start leading-tight"
                     `}>
-                        <div className="grid place-items-center mr-4">
+                        <div className="grid place-items-center mr-0 md:mr- text-2xl md:text-xl">
                         <IoLogOutSharp/>
                         </div>
+                        <span className="hidden md:inline-block">
                         Salir
+                        </span>
                     </button>
                 </form>
             </div>
