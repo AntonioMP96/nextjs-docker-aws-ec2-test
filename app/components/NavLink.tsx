@@ -16,7 +16,7 @@ export const NavLink = ({ path, icon, title, subTitle }: Props) => {
         <Link 
         href={path}
         className={`
-        flex items-center justify-center w-full p-3 rounded-xl text-start leading-tight transition-all border-4 hover:border-black
+        flex items-center justify-center md:justify-start w-full p-3 rounded-xl text-start leading-tight transition-all border-4 hover:border-black
         ${currentPath === path ? "border-black" : "border-emerald-400"}
         `}>
             <div className="grid place-items-center content-center mr-0 md:mr-4 text-2xl md:text-xl">

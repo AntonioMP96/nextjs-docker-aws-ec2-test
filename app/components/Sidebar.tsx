@@ -61,7 +61,7 @@ export const Sidebar = async () => {
                 <hr className="w-full border-t-black"/>
                 
                 <NavLink 
-                path={'/'} 
+                path={'/perfil'} 
                 icon={session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={30} height={30} alt="Profile logo"/> : <IoPersonCircleSharp/>} 
                 title={session?.user?.name ? session.user.name : 'Mi perfil'}
                 /> 
@@ -76,9 +76,9 @@ export const Sidebar = async () => {
                     <button 
                     type="submit"
                     className={`
-                    flex items-center justify-center w-full p-3  text-start leading-tight"
+                    flex items-center justify-center md:justify-start w-full p-3  text-start leading-tight"
                     `}>
-                        <div className="grid place-items-center mr-0 md:mr- text-2xl md:text-xl">
+                        <div className="grid place-items-center mr-0 md:mr-4 text-2xl md:text-xl">
                         <IoLogOutSharp/>
                         </div>
                         <span className="hidden md:inline-block">
