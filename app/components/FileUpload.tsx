@@ -91,7 +91,7 @@ export const FileUpload = () => {
                 <div className="flex flex-col items-center justify-center pt-5 pb-6 px-2 ">
                     <IoCloudUploadOutline className='text-2xl mb-2'/>
                     <p 
-                    className={`mb-2 text-md text-center ${fileName && 'font-bold text-xl'}`}>
+                    className={`mb-2 text-md text-center ${fileName && 'font-bold text-2xl text-blue-500'}`}>
                         {dragActive? 'Suélta aquí tu archivo' : fileName ? `${fileName}` : 'Click para subir nuevo o arrastra y suelta'}
                     </p>
                     <p className="text-sm">{ fileName ? 'Click para cambiar' : 'Sólo archivos HTML (.html)'}</p>
