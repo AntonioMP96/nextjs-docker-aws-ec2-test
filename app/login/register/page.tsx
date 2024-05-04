@@ -1,7 +1,13 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import { IoEyeOutline, IoEyeOffOutline} from 'react-icons/io5'
 
 export default function Register() {
+    const [showPass, setShowPass] = useState(false)
+
     return (
         <div  className='h-full'>
             <div className="flex items-center justify-start gap-3 m-7">
@@ -24,20 +30,38 @@ export default function Register() {
                         <h2 className="text-3xl md:text-4xl font-bold">Crear cuenta</h2>
                         <p className="text-md md:text-xl">Crea tu cuenta en el compilador de archivos Tailwind a CSS</p>
                     </div>
-                    <div className="flex flex-col max-w-md space-y-5">
-                        <input 
-                        type="text" 
-                        placeholder="Usuario / correo"
-                        className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
-                        />
-                        <input 
-                        type="password" 
-                        placeholder="Contraseña"
-                        className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
-                        />
-                        <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                        Confirmar
-                        </button>
+                    <div className="space-y-5">
+                        <form action="" className="flex flex-col max-w-md space-y-5">
+                            <input 
+                            type="text" 
+                            title="Usuario/correo"
+                            placeholder="Usuario / correo"
+                            className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
+                            />
+                            <div className="relative w-full">
+                                <input 
+                                type={showPass ? "text" : "password"} 
+                                title="Contraseña"
+                                placeholder="Contraseña"
+                                className="w-full flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
+                                />
+                                <button 
+                                type="button"
+                                title={showPass ? "Esconder" : "Mostrar"}
+                                onClick={() => setShowPass(showPass ? false : true)}
+                                className="absolute inset-y-0 right-0 pr-3 hover:text-slate-400 transition-all">
+                                    {showPass ? <IoEyeOutline className='text-2xl'/> : <IoEyeOffOutline className='text-2xl'/>}
+                                </button>
+                            </div>
+                            
+                            <button className={`
+                            flex items-center justify-center flex-none 
+                            px-3 py-2 md:px-4 md:py-3 rounded-lg font-medium 
+                            border-2  border-black bg-black text-white
+                            `}>
+                                Confirmar
+                            </button>
+                        </form>
 
                         <div className="flex justify-center items-center">
                             <span className="w-full border border-black"></span>
