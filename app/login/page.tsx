@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { signIn, auth } from "@/auth"
 import { redirect } from "next/navigation"
 
@@ -25,19 +26,22 @@ export default function Main() {
               alt="Tailwind to CSS logo"
               className="rounded-lg"
               />
-            <a href="#" className="font-medium text-3xl">
+            <span className="font-medium text-3xl">
               Tailwind to CSS
-            </a>
+            </span>
           </div>
           <div className='space-y-5'>
             <h1 className="lg:text-3xl xl:text-5xl xl:leading-snug font-extrabold">
               Compilador de archivos de Tailwind a CSS
             </h1>
             <p className="text-lg">¿No tienes cuenta?</p>
-            <button
+
+            <Link
+            href="login/register"
             className="inline-block flex-none px-4 py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
               Crear cuenta
-            </button>
+            </Link>
+
           </div>
           <p className="font-medium">© 2024 Tony MX</p>
         </div>
@@ -53,7 +57,7 @@ export default function Main() {
                 src={'/tw_css_logo.svg'}
                 height={50}
                 width={140}
-                alt="Cykadas"
+                alt="Tailwind to CSS logo"
                 />
               </a>
             </div>
