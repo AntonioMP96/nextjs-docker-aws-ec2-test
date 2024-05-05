@@ -1,29 +1,43 @@
 'use client'
-'use client'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import { FormEvent, useState } from 'react'
 import axios, {AxiosError} from 'axios'
-
 import { IoEyeOutline, IoEyeOffOutline} from 'react-icons/io5'
+import { signIn } from "@/auth"
+import { redirect } from "next/navigation"
+
+
 
 export default function Register() {
 
     const [error, setError] = useState()
+    const [showPass, setShowPass] = useState(false)
+
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+        console.log('Entrando en handle submit')
         e.preventDefault()
 
         const formData = new FormData(e.currentTarget)
 
         try {
-            const res = await axios.post('/api/auth/signup', {
-                username:formData.get('username'),
+            const signupResponse = await axios.post('/api/auth/signup', {
+                username: formData.get('username'),
                 password: formData.get('password'),
-                email:formData.get('email')
+                email: formData.get('email'),
             })
-            console.log('RES:', res)
+            console.log('RESPUESTA DEL SIGNUP:', signupResponse)
+            redirect('/')
+
+            // "use server"
+            // const signinRes = await signIn("credentials", {
+            //     email: signupResponse.data.email,
+            //     password: formData.get("password"),
+            //     redirect: false
+            // })
+
         } catch (error) {
             console.log(error)
             if (error instanceof AxiosError) {
@@ -32,8 +46,6 @@ export default function Register() {
         }
     }
 
-
-    const [showPass, setShowPass] = useState(false)
 
     return (
         <div  className='h-full'>
@@ -60,19 +72,20 @@ export default function Register() {
                         <form action=""
                         onSubmit={handleSubmit}
                         className="flex flex-col space-y-5">
-                            {error && <span className='bg-red-400 p-2 text-center text-white'>
+                            {error && <span className='bg-red-500 p-2 text-center text-white rounded-lg antialiased'>
                                 {error}
                             </span>}
                             <input 
                             name='username'
                             type="text" 
-                            title="Usuario/correo"
-                            placeholder="Usuario / correo"
+                            title="Nombre de usuario"
+                            placeholder="Usuario"
                             className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
                             />
                             <input 
                             name='email'
                             type="email" 
+                            title="Correo electronico"
                             placeholder="Correo"
                             className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
                             />
@@ -110,6 +123,10 @@ export default function Register() {
                         </div>
 
                         <form 
+                        // action={async () => {
+                        // "use server"
+                        // await signIn("google", {redirectTo: "/"})
+                        // }}
                         className="hover:bg-slate-300 rounded-lg">
                             <button 
                             className="w-full flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative">
@@ -126,6 +143,10 @@ export default function Register() {
                         </form>
 
                         <form
+                        // action={async () => {
+                        // "use server"
+                        // await signIn("github", {redirectTo: "/"})
+                        // }}
                         className="hover:bg-slate-300 rounded-lg">
                             <button 
                             className="w-full flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative"

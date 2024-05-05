@@ -9,7 +9,7 @@ export default function Footer() {
           <Link className="title-font font-normal" href="https://www.cykadas.com">
             <span className="ml-3 text-lg flex flex-row items-center justify-center gap-3">
               &copy;
-                Tony MX
+                Tailwind to CSS
                 2024
             </span>
           </Link>
