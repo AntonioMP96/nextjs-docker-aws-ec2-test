@@ -57,42 +57,41 @@ export default function Register() {
                         <p className="text-md md:text-xl">Crea tu cuenta en el compilador de archivos Tailwind a CSS</p>
                     </div>
                     <div className="space-y-5">
-                        <form action="" className="flex flex-col max-w-md space-y-5">
-                        <form action="" 
+                        <form action=""
                         onSubmit={handleSubmit}
                         className="flex flex-col space-y-5">
                             {error && <span className='bg-red-400 p-2 text-center text-white'>
                                 {error}
                             </span>}
-                                <input 
+                            <input 
                             name='username'
-                                type="text" 
-                                title="Usuario/correo"
+                            type="text" 
+                            title="Usuario/correo"
                             placeholder="Usuario / correo"
-                                className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
-                                />
-                                <div className="relative w-full">
-                                <input 
+                            className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
+                            />
+                            <input 
                             name='email'
                             type="email" 
                             placeholder="Correo"
                             className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
                             />
+                            <div className="relative w-full">
                             <input 
                             name='password'
-                                    type={showPass ? "text" : "password"} 
-                                title="Contraseña"
-                                    placeholder="Contraseña"
-                                    className={`w-full flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal`} 
-                                    />
+                            type={showPass ? "text" : "password"} 
+                            title="Contraseña"
+                            placeholder="Contraseña"
+                            className={`w-full flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal`} 
+                            />
                             
-                                    <button 
-                                type="button"
-                                title={showPass ? "Esconder" : "Mostrar"}
-                                onClick={() => setShowPass(showPass ? false : true)}
-                                className="absolute inset-y-0 right-0 pr-3 hover:text-slate-400 transition-all">
-                                    {showPass ? <IoEyeOutline className='text-2xl'/> : <IoEyeOffOutline className='text-2xl'/>}
-                                </button>
+                            <button 
+                            type="button"
+                            title={showPass ? "Esconder" : "Mostrar"}
+                            onClick={() => setShowPass(showPass ? false : true)}
+                            className="absolute inset-y-0 right-0 pr-3 hover:text-slate-400 transition-all">
+                                {showPass ? <IoEyeOutline className='text-2xl'/> : <IoEyeOffOutline className='text-2xl'/>}
+                            </button>
                             </div>
                             
                             <button className={`
@@ -102,7 +101,6 @@ export default function Register() {
                             `}>
                                     Confirmar
                                 </button>
-                        </form>
                         </form>
 
                         <div className="flex justify-center items-center">
