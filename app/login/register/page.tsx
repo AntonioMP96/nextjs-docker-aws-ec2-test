@@ -6,8 +6,6 @@ import Link from 'next/link'
 import { FormEvent, useState } from 'react'
 import axios, {AxiosError} from 'axios'
 
-
-import { useState } from 'react'
 import { IoEyeOutline, IoEyeOffOutline} from 'react-icons/io5'
 
 export default function Register() {
