@@ -36,7 +36,11 @@ export async function POST(request: Request) {
         })
         const savedUser = await user.save()
         console.log('USUARIO GUARDADO:', savedUser)
-        return NextResponse.json(savedUser)
+        return NextResponse.json({
+            '_id': savedUser._id,
+            'username': savedUser.username,
+            'email': savedUser.email
+        })
 
     } catch (error) {
         console.log('ERROR:', error)

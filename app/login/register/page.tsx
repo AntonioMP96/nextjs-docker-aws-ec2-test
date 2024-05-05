@@ -1,11 +1,39 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FormEvent, useState } from 'react'
+import axios, {AxiosError} from 'axios'
+
+
 
 export default function Register() {
+
+    const [error, setError] = useState()
+
+    const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.currentTarget)
+
+        try {
+            const res = await axios.post('/api/auth/signup', {
+                username:formData.get('username'),
+                password: formData.get('password'),
+                email:formData.get('email')
+            })
+            console.log('RES:', res)
+        } catch (error) {
+            console.log(error)
+            if (error instanceof AxiosError) {
+                setError(error.response?.data.message)
+            }
+        }
+    }
+
+
     return (
         <div  className='h-full'>
             <div className="flex items-center justify-start gap-3 m-7">
-                {/* <span className="bg-black rounded-full w-8 h-8"></span>*/}
                 <Image
                 src={'/tw_css_logo.svg'}
                 height={45}
@@ -25,19 +53,35 @@ export default function Register() {
                         <p className="text-md md:text-xl">Crea tu cuenta en el compilador de archivos Tailwind a CSS</p>
                     </div>
                     <div className="flex flex-col max-w-md space-y-5">
-                        <input 
-                        type="text" 
-                        placeholder="Usuario / correo"
-                        className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
-                        />
-                        <input 
-                        type="password" 
-                        placeholder="Contraseña"
-                        className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
-                        />
-                        <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                        Confirmar
-                        </button>
+                        <form action="" 
+                        onSubmit={handleSubmit}
+                        className="flex flex-col space-y-5">
+                            {error && <span className='bg-red-400 p-2 text-center text-white'>
+                                {error}
+                            </span>}
+                            <input 
+                            name='username'
+                            type="text" 
+                            placeholder="Usuario / correo"
+                            className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
+                            />
+                            <input 
+                            name='email'
+                            type="email" 
+                            placeholder="Correo"
+                            className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" 
+                            />
+                            <input 
+                            name='password'
+                            type="password" 
+                            placeholder="Contraseña"
+                            className={`flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal`} 
+                            />
+                            
+                            <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
+                            Confirmar
+                            </button>
+                        </form>
 
                         <div className="flex justify-center items-center">
                             <span className="w-full border border-black"></span>

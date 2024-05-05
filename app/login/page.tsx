@@ -18,14 +18,14 @@ export default function Main() {
   
         <div className='hidden lg:flex flex-col justify-between bg-[#1b696d] lg:p-8 xl:p-12 lg:max-w-sm xl:max-w-lg'>
           <div className="flex items-center justify-start space-x-3">
-            {/* <span className="bg-black rounded-full w-8 h-8"></span>*/}
+            
             <Image
-              src={'/tw_css_logo.svg'}
-              height={45}
-              width={45}
-              alt="Tailwind to CSS logo"
-              className="rounded-lg"
-              />
+            src={'/tw_css_logo.svg'}
+            height={45}
+            width={45}
+            alt="Tailwind to CSS logo"
+            className="rounded-lg"
+            />
             <span className="font-medium text-3xl">
               Tailwind to CSS
             </span>
