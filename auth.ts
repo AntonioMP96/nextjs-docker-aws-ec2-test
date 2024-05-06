@@ -2,11 +2,16 @@ import NextAuth from "next-auth"
 import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials"
-// --
+// -- --
 import { connectDB } from "@/lib/mongodb"
 import User from '@/models/user'
 import bcrypt from "bcryptjs"
 
+
+type CredentialsType = {
+    email: { label: string, type: string, placeholder: string },
+    password: { label: string, type: string, placeholder: string }
+}
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -24,9 +29,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 const userFound = await User.findOne({ email: credentials?.email}).select("+password")
                 if (!userFound) throw new Error("Credenciales invalidas")
                 
-
                 const passwordMatch = await bcrypt.compare(credentials!.password, userFound!.password)
-                console.log('PASSWORDS MATCH?', passwordMatch)
                 if (!passwordMatch) throw new Error('Credenciales invalidas')
 
                 return userFound

@@ -1,51 +1,10 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { FormEvent, useState } from 'react'
-import axios, {AxiosError} from 'axios'
-import { IoEyeOutline, IoEyeOffOutline} from 'react-icons/io5'
-import { signIn } from "@/auth"
-import { redirect } from "next/navigation"
-
+// import { signIn } from "@/auth"
+import { RegisterForm } from '@/app/components'
 
 
 export default function Register() {
-
-    const [error, setError] = useState()
-    const [showPass, setShowPass] = useState(false)
-
-
-    const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
-        console.log('Entrando en handle submit')
-        e.preventDefault()
-
-        const formData = new FormData(e.currentTarget)
-
-        try {
-            const signupResponse = await axios.post('/api/auth/signup', {
-                username: formData.get('username'),
-                password: formData.get('password'),
-                email: formData.get('email'),
-            })
-            console.log('RESPUESTA DEL SIGNUP:', signupResponse)
-            redirect('/')
-
-            // "use server"
-            // const signinRes = await signIn("credentials", {
-            //     email: signupResponse.data.email,
-            //     password: formData.get("password"),
-            //     redirect: false
-            // })
-
-        } catch (error) {
-            console.log(error)
-            if (error instanceof AxiosError) {
-                setError(error.response?.data.message)
-            }
-        }
-    }
-
 
     return (
         <div  className='h-full'>
@@ -69,7 +28,7 @@ export default function Register() {
                         <p className="text-md md:text-xl">Crea tu cuenta en el compilador de archivos Tailwind a CSS</p>
                     </div>
                     <div className="space-y-5">
-                        <form action=""
+                        {/* <form action=""
                         onSubmit={handleSubmit}
                         className="flex flex-col space-y-5">
                             {error && <span className='bg-red-500 p-2 text-center text-white rounded-lg antialiased'>
@@ -114,7 +73,9 @@ export default function Register() {
                             `}>
                                     Confirmar
                                 </button>
-                        </form>
+                        </form> */}
+
+                        <RegisterForm/>
 
                         <div className="flex justify-center items-center">
                             <span className="w-full border border-black"></span>
