@@ -1,7 +1,6 @@
 'use client'
-import { signIn } from "@/auth"
+import { signIn } from "next-auth/react"
 import axios, {AxiosError} from 'axios'
-import { redirect } from "next/navigation"
 import { FormEvent, useState } from 'react'
 import { IoEyeOutline, IoEyeOffOutline} from 'react-icons/io5'
 
@@ -11,6 +10,7 @@ export const RegisterForm = () => {
     const [error, setError] = useState()
     const [showPass, setShowPass] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         setLoading(true)
@@ -27,14 +27,13 @@ export const RegisterForm = () => {
             })
             console.log('RESPUESTA DEL SIGNUP:', signupResponse)
             setLoading(false)
-            // redirect('/')
-
-            // "use server"
-            // const signinRes = await signIn("credentials", {
-            //     email: signupResponse.data.email,
-            //     password: formData.get("password"),
-            //     redirect: false
-            // })
+            setSuccess(true)
+            
+            await signIn("credentials", {
+                email: signupResponse.data.email,
+                password: formData.get("password"),
+                redirectTo: '/'
+            })
 
         } catch (error) {
             console.log(error)
@@ -51,7 +50,10 @@ export const RegisterForm = () => {
         action=""
         onSubmit={handleSubmit}
         className="flex flex-col space-y-5">
-            {error && <span className='bg-red-500 p-2 text-center text-white rounded-lg antialiased'>
+            {success && <span className='bg-emerald-500 p-2 text-center text-white rounded-lg antialiased'>
+            ¡Cuenta creada con éxito!
+            </span>}
+            {error && !success && <span className='bg-red-500 p-2 text-center text-white rounded-lg antialiased'>
             {error}
             </span>}
             <input 
