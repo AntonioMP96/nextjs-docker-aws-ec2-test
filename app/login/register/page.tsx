@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import { signIn } from "@/auth"
+import { signIn } from "@/auth"
 import { RegisterForm } from '@/app/components'
 
 
@@ -84,10 +84,10 @@ export default function Register() {
                         </div>
 
                         <form 
-                        // action={async () => {
-                        // "use server"
-                        // await signIn("google", {redirectTo: "/"})
-                        // }}
+                        action={async () => {
+                        "use server"
+                        await signIn("google", {redirectTo: "/"})
+                        }}
                         className="hover:bg-slate-300 rounded-lg">
                             <button 
                             className="w-full flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative">
@@ -104,10 +104,10 @@ export default function Register() {
                         </form>
 
                         <form
-                        // action={async () => {
-                        // "use server"
-                        // await signIn("github", {redirectTo: "/"})
-                        // }}
+                        action={async () => {
+                        "use server"
+                        await signIn("github", {redirectTo: "/"})
+                        }}
                         className="hover:bg-slate-300 rounded-lg">
                             <button 
                             className="w-full flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative"
