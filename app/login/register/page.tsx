@@ -8,7 +8,7 @@ export default function Register() {
 
     return (
         <div  className='h-full'>
-            <div className="flex items-center justify-start gap-3 m-7">
+            <div className="flex items-center justify-start gap-3 m-2 md:m-7">
                 <Image
                 src={'/tw_css_logo.svg'}
                 height={45}
@@ -16,13 +16,13 @@ export default function Register() {
                 alt="Tailwind to CSS logo"
                 className="rounded-lg"
                 />
-                <Link href="/" className="font-medium text-3xl">
+                <Link href="/" className="font-medium text-xl md:text-3xl">
                 Tailwind to CSS
                 </Link>
             </div>
 
-            <div className="h-full flex justify-center items-center -mt-24">
-                <div className="flex flex-1 flex-col  justify-center space-y-5 max-w-md">
+            <div className="h-full flex justify-center items-center -mt-10 md:-mt-24">
+                <div className="flex flex-1 flex-col  justify-center space-y-5 max-w-md px-2 md:px-0">
                     <div className="flex flex-col items-center space-y-2 text-center">
                         <h2 className="text-3xl md:text-4xl font-bold">Crear cuenta</h2>
                         <p className="text-md md:text-xl">Crea tu cuenta en el compilador de archivos Tailwind a CSS</p>
