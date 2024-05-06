@@ -8,10 +8,6 @@ import User from '@/models/user'
 import bcrypt from "bcryptjs"
 
 
-type CredentialsType = {
-    email: { label: string, type: string, placeholder: string },
-    password: { label: string, type: string, placeholder: string }
-}
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -29,7 +25,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 const userFound = await User.findOne({ email: credentials?.email}).select("+password")
                 if (!userFound) throw new Error("Credenciales invalidas")
                 
-                const passwordMatch = await bcrypt.compare(credentials!.password, userFound!.password)
+                const passwordMatch = await bcrypt.compare(credentials!.password as string, userFound!.password)
                 if (!passwordMatch) throw new Error('Credenciales invalidas')
 
                 return userFound
