@@ -16,7 +16,6 @@ export default async function Perfil() {
                 {session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={250} height={250} alt="Profile logo" priority={true}/> : <IoPersonCircleSharp className='text-5xl'/>} 
                 <h1 className="text-center leading-snug text-5xl font-medium">
                     {session?.user?.name ? session.user.name : 'Mi perfil'}
-                    {/* {session?.user?.name ? session.user.name : session?.user?.username ? session?.user.username: 'Mi perfil'} */}
                 </h1>
                 <h2 className="text-md text-slate-500 -mt-4">
                     {session?.user?.email ? session.user.email : 'Tailwind to CSS'}

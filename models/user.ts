@@ -16,7 +16,7 @@ const userSchema = new Schema({
         required: [true, "La contraseña es requerida!"],
         select: false
     },
-    username: {
+    name: {
         type: String,
         required: [true, 'El nombre es requerido!'],
         minLength: [4, "El nombre debe tener al menos 4 caracteres!"],

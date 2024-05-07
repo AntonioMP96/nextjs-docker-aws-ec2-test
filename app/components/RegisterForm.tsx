@@ -21,7 +21,7 @@ export const RegisterForm = () => {
 
         try {
             const signupResponse = await axios.post('/api/auth/signup', {
-                username: formData.get('username'),
+                name: formData.get('name'),
                 password: formData.get('password'),
                 email: formData.get('email'),
             })
@@ -58,7 +58,7 @@ export const RegisterForm = () => {
             </span>}
             <input 
             disabled={loading}
-            name='username'
+            name='name'
             type="text" 
             title="Nombre de usuario"
             placeholder="Usuario"

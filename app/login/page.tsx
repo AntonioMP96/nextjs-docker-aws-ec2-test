@@ -1,14 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import { signIn, auth } from "@/auth"
-import { redirect } from "next/navigation"
+// import { redirect } from "next/navigation"
 
 
-export default function Main() {
-  // -- auth --
-  const session = auth()
-  // if (session) redirect('/')
-  // -- end auth --
+export default async function Main() {
+  
+  // const session = await auth()
+  // console.log('SESION:', session)
+  
 
     return (
   

@@ -24,6 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 await connectDB()
                 const userFound = await User.findOne({ email: credentials?.email}).select("+password")
                 if (!userFound) throw new Error("Credenciales invalidas")
+                console.log('USUARIO ENCONTRADO...', userFound)
                 
                 const passwordMatch = await bcrypt.compare(credentials!.password as string, userFound!.password)
                 if (!passwordMatch) throw new Error('Credenciales invalidas')
@@ -35,10 +36,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     callbacks: {
         jwt({token, user}) {
             if (user) token.user = user
+            console.log('JWT:', token)
             return token
         },
         session({session, token}) {
             session.user = token.user as any
+            console.log('SESSION:', session)
             return session
         }
     }
