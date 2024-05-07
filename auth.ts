@@ -44,5 +44,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             console.log('SESSION:', session)
             return session
         }
+    },
+    pages: {
+        signIn: '/login',
+        signOut: '/perfil'
     }
 })
