@@ -1,13 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { signIn, auth } from "@/auth"
-// import { redirect } from "next/navigation"
+import { signIn } from "@/auth"
+// -- --
+import { LoginForm } from "@/app/components";
 
 
 export default async function Main() {
-  
-  // const session = await auth()
-  // console.log('SESION:', session)
   
 
     return (
@@ -76,27 +74,8 @@ export default async function Main() {
               <p className="text-md md:text-xl">Inicia sesión en el compilador de tailwind a css</p>
             </div>
             <div className="flex flex-col max-w-md space-y-5">
-              <form
-                action={async (formData) => {
-                  "use server"
-                  await signIn("credentials", formData)
-                }}
-                className="flex flex-col space-y-5"
-              >
-                <input 
-                name="email"
-                type="email"
-                placeholder="Correo"
-                className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                <input 
-                name="password"
-                type="password"
-                placeholder="Contraseña"
-                className="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                  Confirmar
-                </button>
-              </form>
+
+              <LoginForm />
 
               <div className="flex justify-center items-center">
                 <span className="w-full border border-black"></span>
