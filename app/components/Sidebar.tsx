@@ -62,8 +62,8 @@ export const Sidebar = async () => {
                 
                 <NavLink 
                 path={'/perfil'} 
-                icon={session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={30} height={30} alt="Profile logo"/> : <IoPersonCircleSharp/>} 
-                title={session?.user?.name ? session.user.name : 'Mi perfil'}
+                icon={ session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={30} height={30} alt="Profile logo"/> : <IoPersonCircleSharp/> } 
+                title={ session?.user?.name ? session.user.name : 'Mi perfil' }
                 /> 
                  
                 <form 
