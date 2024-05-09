@@ -13,7 +13,7 @@ export default async function Perfil() {
     return (
         <div className="p-5 h-full">
             <div className='w-full h-full flex flex-col items-center justify-center gap-7'>
-                {session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={250} height={250} alt="Profile logo" priority={true}/> : <IoPersonCircleSharp className='text-5xl'/>} 
+                {session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={200} height={200} alt="Profile logo" priority={true}/> : <IoPersonCircleSharp className='text-5xl'/>} 
                 <h1 className="text-center leading-snug text-5xl font-medium">
                     {session?.user?.name ? session.user.name : 'Mi perfil'}
                 </h1>

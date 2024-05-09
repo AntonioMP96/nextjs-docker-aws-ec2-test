@@ -1,8 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { signIn } from "@/auth"
+import { IoArrowForward } from "react-icons/io5";
 // -- --
-import { LoginForm } from "@/app/components";
+// import { LoginForm } from "@/app/components";
 
 
 export default async function Main() {
@@ -32,12 +33,12 @@ export default async function Main() {
             <h1 className="lg:text-3xl xl:text-5xl xl:leading-snug font-extrabold">
               Compilador de archivos de Tailwind a CSS
             </h1>
-            <p className="text-lg">¿No tienes cuenta?</p>
+            <p className="text-lg">Accede de forma gratuita</p>
 
             <Link
             href="login/register"
             className="inline-block flex-none px-4 py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-              Crear cuenta
+              Saber más
             </Link>
 
           </div>
@@ -61,7 +62,7 @@ export default async function Main() {
             </div>
   
             <div className="flex items-center space-x-2 text-sm">
-              <span>No tienes cuenta?</span>
+              <span>Accede de forma gratuita</span>
               <a href="#" className="underline font-medium text-[#070eff]">
                 Registrarme
               </a>
@@ -71,17 +72,19 @@ export default async function Main() {
           <div className="flex flex-1 flex-col  justify-center space-y-5 max-w-md">
             <div className="flex flex-col space-y-2 text-center">
               <h2 className="text-3xl md:text-4xl font-bold">Ingresar a mi cuenta</h2>
-              <p className="text-md md:text-xl">Inicia sesión en el compilador de tailwind a css</p>
+              <p className="text-md md:text-xl">
+                Empieza a compilar tus archivos Tailwind
+              </p>
             </div>
             <div className="flex flex-col max-w-md space-y-5">
 
-              <LoginForm />
+              {/* <LoginForm /> */}
 
-              <div className="flex justify-center items-center">
+              {/* <div className="flex justify-center items-center">
                 <span className="w-full border border-black"></span>
                 <span className="px-4">Ó</span>
                 <span className="w-full border border-black"></span>
-              </div>
+              </div> */}
 
               <form 
                 action={async () => {
@@ -98,7 +101,7 @@ export default async function Main() {
                       <path fill="#FBBC05" d="M5.27698177,14.2678769 C5.03832634,13.556323 4.90909091,12.7937589 4.90909091,12 C4.90909091,11.2182781 5.03443647,10.4668121 5.26620003,9.76452941 L1.23999023,6.65002441 C0.43658717,8.26043162 0,10.0753848 0,12 C0,13.9195484 0.444780743,15.7301709 1.23746264,17.3349879 L5.27698177,14.2678769 Z"/>
                   </svg>
                   </span>
-                  <span>Iniciar sesión con Google</span>
+                  <span>Acceder con Google</span>
                 </button>
               </form>
 
@@ -116,7 +119,7 @@ export default async function Main() {
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                   </span>
-                  <span>Iniciar sesión con Github</span>
+                  <span>Acceder con Github</span>
                 </button>
               </form>
             </div>

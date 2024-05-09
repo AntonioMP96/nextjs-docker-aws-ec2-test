@@ -63,7 +63,7 @@ export const Sidebar = async () => {
                 <NavLink 
                 path={'/perfil'} 
                 icon={ session?.user?.image ? <Image className="rounded-full" src={session.user.image} width={30} height={30} alt="Profile logo"/> : <IoPersonCircleSharp/> } 
-                title={ session?.user?.name ? session.user.name : 'Mi perfil' }
+                title={ session?.user?.name ? shortName(session.user.name) : 'Mi perfil' }
                 /> 
                  
                 <form 
@@ -89,4 +89,12 @@ export const Sidebar = async () => {
             </div>
         </aside>
     )
+}
+
+
+const shortName = (fullName: string) => {
+    const separatedName = fullName.split(' ')
+    console.log('NOMBRE SEPARADO:', separatedName, typeof separatedName, separatedName.length)
+    if (separatedName.length >= 2) return separatedName[0] + ' ' + separatedName[1]
+    return fullName
 }
