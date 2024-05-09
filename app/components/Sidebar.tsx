@@ -94,7 +94,6 @@ export const Sidebar = async () => {
 
 const shortName = (fullName: string) => {
     const separatedName = fullName.split(' ')
-    console.log('NOMBRE SEPARADO:', separatedName, typeof separatedName, separatedName.length)
     if (separatedName.length >= 2) return separatedName[0] + ' ' + separatedName[1]
     return fullName
 }
