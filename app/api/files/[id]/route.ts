@@ -3,7 +3,7 @@ import { connectDB } from '@/lib/mongodb'
 import File from '@/models/files'
 
 
-export async function GET(request: Request, { params }) {
+export async function GET(request: Request, { params }: any) {
     try {
 
         connectDB()
@@ -29,7 +29,7 @@ export async function GET(request: Request, { params }) {
 }
 
 
-export async function PUT(request: Request, { params }) {
+export async function PUT(request: Request, { params }: any) {
     try {
         const data = await request.json()
         const fileUpdated = await File.findByIdAndUpdate(params.id, data, {
@@ -47,7 +47,7 @@ export async function PUT(request: Request, { params }) {
 }
 
 
-export async function DELETE(request: Request, { params }) {
+export async function DELETE(request: Request, { params }: any) {
     try {
         const fileDeleted = await File.findByIdAndDelete(params.id)
 
