@@ -1,9 +1,11 @@
 'use client'
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 import { IoCloudUploadOutline } from 'react-icons/io5';
 
 
-export const FileUpload = () => {
+export const FileUpload = ({userId} : any) => {
+    const router = useRouter()
     const [fileName, setFileName] = useState<string | null>(null)
     const [fileContent, setFileContent] = useState<string | null>(null)
     // -- drag and drop --
@@ -37,6 +39,31 @@ export const FileUpload = () => {
             }
         }
         fileReader.readAsText(file)
+    }
+
+    const addNewFile = async() => {
+        try {
+            const res = await fetch('/api/files', {
+                method: 'POST',
+                body: JSON.stringify({
+                    userId: userId,
+                    title: fileName,
+                    content: fileContent
+                })
+            })
+            console.log('RESPUESTA DE HANDLEUPLOAD:', res)
+            const resData = await res.json()
+            console.log('RES DATA:', resData)
+            if (res.status === 200) {
+                router.push('/')
+            }
+        } catch (error) {
+            console.log('ERROR:', error)
+        }
+    }
+
+    const handleUpload = async () => {
+        await addNewFile()
     }
 
     function handleDragEnter(e: any) {
@@ -109,7 +136,7 @@ export const FileUpload = () => {
             
             <button
             disabled={fileName ? false : true}
-            onClick={() => console.log(' subiendo...', fileContent)}
+            onClick={() => handleUpload()}
             className={`
             bg-emerald-400 hover:bg-black hover:text-white
             disabled:bg-gray-400 disabled:text-slate-600 disabled:cursor-no-drop     
@@ -119,7 +146,7 @@ export const FileUpload = () => {
             transition-all
             `}
             >
-                Subir y procesar
+                {fileName ? 'Subir y procesar' : 'Agrega un archivo'}
             </button>
         </div> 
     )

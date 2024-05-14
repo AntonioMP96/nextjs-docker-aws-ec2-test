@@ -18,7 +18,7 @@ export const FileCard = ({id, title, createdAt}: File) => {
         `}>
             <IoDocumentOutline size={70} />
             <h3 className="text-xl font-medium">{title.replace('.html', '')}</h3>
-            <span>{new Date(createdAt).toLocaleString('es-MX')}</span>
+            <span>{createdAt}</span>
         </div>
     )
 }

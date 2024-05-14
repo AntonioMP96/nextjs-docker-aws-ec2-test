@@ -1,7 +1,11 @@
 import { FileUpload } from '@/app/components'
+import { auth } from '@/auth'
 
 
-export default function New() {
+export default async function New() {
+
+    const session = await auth()
+
     return (
         <div className="p-5">
             <h1 className="text-4xl font-medium">Subir un nuevo archivo</h1>
@@ -10,7 +14,7 @@ export default function New() {
             <br />
 
             {/* file */}
-            <FileUpload />
+            <FileUpload userId={String(session?.user?.id)}/>
             {/* endfile */}
 
             <br />

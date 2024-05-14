@@ -7,9 +7,6 @@ export async function GET() {
     connectDB()
 
     const files = await File.find()
-    console.log('FILES:', files)
-    console.log('FILE COUNT:', files.length)
-
     return NextResponse.json(files)
 }
 
@@ -17,6 +14,7 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const data = await request.json()
+        
         const newFile = new File(data)
         const savedFile = await newFile.save()
         console.log('NEW FILE:', savedFile)
