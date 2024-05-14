@@ -7,6 +7,7 @@ import {FileCard} from '@/app/components'
 
 
 async function loadFiles() {
+    // "use server"
     connectDB()
     const files = await File.find()
     return files
@@ -31,11 +32,10 @@ export default async function Main() {
                             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                 <IoFileTrayFullOutline />
                             </div>
-                            <input type="text" id="simple-search" className="bg-slate-50 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-emerald-500 block w-full ps-10 p-2.5  " placeholder="Buscar por nombre..." required />
+                            <input type="text" id="simple-search" className="bg-slate-50 border border-slate-300 text-gray-900 text-md rounded-lg focus:outline-emerald-500 block w-full ps-10 p-2.5  " placeholder="Buscar por nombre..." required />
                         </div>
                         <button type="submit" className="p-2.5 ms-2 text-sm font-medium text-white bg-emerald-500 rounded-lg border border-emerald-500 focus:outline-none">
-                            <IoSearchOutline size={17}/>
-                            <span className="sr-only">Search</span>
+                            <IoSearchOutline size={20}/>
                         </button>
                     </form>
                     
