@@ -14,7 +14,12 @@ const fileSchema = new Schema({
     },
     userId: {
         type: String,
-        required: false
+        required: [true, 'El ID del usuario es requerido']
+    },
+    type: {
+        type: String,
+        required: [true, 'El tipo de archivo es requerido'],
+        unique: false
     }
 
 },
