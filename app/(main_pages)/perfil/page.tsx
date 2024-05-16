@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { IoPersonCircleSharp, IoLogOutOutline, IoPersonOutline, IoFileTrayFullOutline } from 'react-icons/io5';
 
 
@@ -28,15 +29,19 @@ export default async function Perfil() {
                 </div>
 
                 <div className='w-full flex justify-center gap-5'>
-                    <button className={`
+                    <Link 
+                    href="/perfil/editar_datos"
+                    className={`
                     text-black text-xl 
                     py-2 px-4 
                     rounded-md border-2 border-black border-solid
                     hover:bg-black hover:text-white                    
                     flex items-center
-                    transition-all duration-300`}>
+                    transition-all duration-300`}
+                    >
                         <IoPersonOutline/>&nbsp;Editar datos
-                    </button>
+                    </Link>
+                    
                     <form 
                     className=""
                     action={async () => {
