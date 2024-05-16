@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { IoCloudUploadOutline } from 'react-icons/io5';
 
 
-export const FileUpload = ({userId} : any) => {
+export const FileUpload = ({userId} : { userId: string }) => {
     const router = useRouter()
     const [fileName, setFileName] = useState<string | null>(null)
     const [fileContent, setFileContent] = useState<string | null>(null)
