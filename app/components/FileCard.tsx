@@ -1,5 +1,5 @@
 'use client'
-import { IoDocumentOutline } from "react-icons/io5"
+import { IoDocumentOutline, IoTrashOutline, IoDownloadOutline } from "react-icons/io5"
 
 type File = {
     id: string;
@@ -14,11 +14,27 @@ export const FileCard = ({id, title, createdAt}: File) => {
         flex flex-col items-center gap-2
         bg-white text-slate-900 rounded-xl w-fit
         p-6 border-4 border-transparent hover:border-slate-900
-        cursor-pointer transition-all
+        transition-all
         `}>
             <IoDocumentOutline size={70} />
             <h3 className="text-xl font-medium">{title.replace('.html', '')}</h3>
             <span>{createdAt}</span>
+            <div className="flex gap-2">
+                <button className={`
+                text-slate-50 text-xl
+                bg-red-500 rounded-md hover:bg-red-600
+                p-1
+                `}>
+                    <IoTrashOutline/>
+                </button>
+                <button className={`
+                text-slate-50 text-xl
+                bg-blue-500 rounded-md hover:bg-blue-600
+                p-1
+                `}>
+                    <IoDownloadOutline/>
+                </button>
+            </div>
         </div>
     )
 }
