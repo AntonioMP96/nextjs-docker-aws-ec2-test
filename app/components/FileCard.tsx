@@ -1,5 +1,7 @@
 'use client'
 import { IoDocumentOutline, IoTrashOutline, IoDownloadOutline } from "react-icons/io5"
+import { SiTailwindcss } from "react-icons/si";
+import { IoLogoCss3 } from "react-icons/io5";
 
 type File = {
     id: string;
@@ -15,7 +17,13 @@ export const FileCard = ({id, title, createdAt}: File) => {
         bg-white text-slate-900 rounded-xl w-fit
         p-6 border-4 border-transparent hover:border-slate-900
         transition-all
+        relative
         `}>
+            <div className="absolute top-1 left-1 text-slate-500">
+                <SiTailwindcss size={17} />
+                <IoLogoCss3 size={17} />
+            </div>
+
             <IoDocumentOutline size={70} />
             <h3 className="text-xl font-medium">{title.replace('.html', '')}</h3>
             <span>{createdAt}</span>
