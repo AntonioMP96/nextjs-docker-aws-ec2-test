@@ -10,6 +10,10 @@ type File = {
 }
 
 export const FileCard = ({id, title, createdAt}: File) => {
+
+    const handleDelete = (id: string) => {
+        console.log('deleting file...', id)
+    }
     
     return (
         <div className={`
@@ -32,7 +36,8 @@ export const FileCard = ({id, title, createdAt}: File) => {
                 text-slate-50 text-xl
                 bg-red-500 rounded-md hover:bg-red-600
                 p-1
-                `}>
+                `}
+                onClick={() => handleDelete(id)}>
                     <IoTrashOutline/>
                 </button>
                 <button className={`
