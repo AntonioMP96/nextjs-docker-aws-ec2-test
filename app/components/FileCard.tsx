@@ -2,6 +2,9 @@
 import { IoDocumentOutline, IoTrashOutline, IoDownloadOutline } from "react-icons/io5"
 import { SiTailwindcss } from "react-icons/si";
 import { IoLogoCss3 } from "react-icons/io5";
+import { useRouter } from "next/navigation";
+
+import * as filesApi from '@/app/(main_pages)/helpers/files'
 
 type File = {
     id: string;
@@ -11,8 +14,12 @@ type File = {
 
 export const FileCard = ({id, title, createdAt}: File) => {
 
-    const handleDelete = (id: string) => {
+    const router = useRouter()
+
+    const handleDelete = async(id: string) => {
         console.log('deleting file...', id)
+        await filesApi.deleteFile(id)
+        router.refresh()
     }
     
     return (
